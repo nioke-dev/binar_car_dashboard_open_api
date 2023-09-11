@@ -15,3 +15,10 @@ $ npm run dev # run development!
 $ npm run build # build typescript project
 $ npm start # run in development mode
 ```
+
+## Database
+
+```
+$ docker compose up -d # run database
+$ docker compose down -v # delete database and the volume
+```
