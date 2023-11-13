@@ -30,7 +30,7 @@ class App {
 
   routes() {
     // Insert routes here
-    new ArticleController(app);
+    new ArticleController(app).init();
   }
 }
 

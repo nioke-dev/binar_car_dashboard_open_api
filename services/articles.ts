@@ -3,6 +3,7 @@ import ArticlesRepository from "../repositories/articles";
 
 export default class ArticlesServices {
   repository: ArticlesRepository;
+
   constructor() {
     this.repository = new ArticlesRepository();
   }
