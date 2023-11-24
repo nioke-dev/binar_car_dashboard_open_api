@@ -13,15 +13,7 @@ export default class ArticleController {
   constructor(app: Express) {
     this.app = app;
     this.service = new AriclesService();
-  }
-
-  init() {
-    this.app.get("/articles", (req, res) => this.getMany(req, res));
-    this.app.get("/articles/:id", (req, res) => this.getOne(req, res));
-    this.app.post("/articles", (req, res) => this.create(req, res));
-    this.app.patch("/articles/:id", (req, res) => this.update(req, res));
-    this.app.delete("/articles/:id", (req, res) => this.del(req, res));
-  }
+  }  
 
   async getMany(_req: Request, res: Response) {
     const result = await this.service.getMany();

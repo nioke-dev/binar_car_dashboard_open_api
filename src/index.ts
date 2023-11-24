@@ -1,8 +1,9 @@
 import express, { Express } from "express";
 import knex from "knex";
 import { Model } from "objection";
-import AppControler from "./controller/app";
-import ArticleController from "./controller/articles";
+import setupUsersRoutes from "../routes/usersRoutes";
+import setupCarsRoutes from "../routes/carsRoutes";
+import setupOrdersRoutes from "../routes/ordersRoutes";
 
 const PORT = 3000;
 
@@ -33,8 +34,9 @@ class App {
 
   routes() {
     // Insert routes here
-    new AppControler(app).init();
-    new ArticleController(app).init();
+    setupUsersRoutes(app);
+    setupCarsRoutes(app);
+    setupOrdersRoutes(app);
   }
 }
 
