@@ -29,7 +29,7 @@
 | **POST** | `/api/auth/register` | Register New User |
 | **POST** | `/api/auth/login`    | Login User        |
 
-### Auth
+### User
 
 | Method  | URL               | Description   |
 | ------- | ----------------- | ------------- |
