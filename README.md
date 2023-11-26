@@ -1,24 +1,52 @@
-# Express TS Starter
+# Binar Car Rental
 
-Simple express TS starter!
+## Guide to Run
 
-## How to use?
+- `npm i` to install all the dependencies
+- Don't forget to make your own `.env` based on `example.env`
+- When its finish:
+  - `npm run build:watch`
+  - `npm run dev`
 
-```
-$ npm install
-$ npm run dev # run development!
-```
+## Migrations and Seeds
 
-## Scripts
+- `knex migrate:latest`
+- `knex seed:run`
 
-```
-$ npm run build # build typescript project
-$ npm start # run in development mode
-```
+## Endpoints
 
-## Database
+### Frontend
 
-```
-$ docker compose up -d # run database
-$ docker compose down -v # delete database and the volume
-```
+| URL     | Description          |
+| ------- | -------------------- |
+| `/`     | index (landing page) |
+| `/cars` | Find Available Car   |
+
+### Auth
+
+| Method   | URL                  | Description       |
+| -------- | -------------------- | ----------------- |
+| **POST** | `/api/auth/register` | Register New User |
+| **POST** | `/api/auth/login`    | Login User        |
+
+### Auth
+
+| Method  | URL               | Description   |
+| ------- | ----------------- | ------------- |
+| **GET** | `/api/users/user` | Show All User |
+
+### Backend
+
+| Method     | URL             | Description                                   |
+| ---------- | --------------- | --------------------------------------------- |
+| **GET**    | `/api/cars/`    | Display all cars data from database           |
+| **GET**    | `/api/cars/:id` | Display specific car data from database by ID |
+| **POST**   | `/api/cars/`    | Create car data to database                   |
+| **UPDATE** | `/api/cars/:id` | Update specific car data from database by ID  |
+| **DELETE** | `/api/cars/:id` | Delete specific car data from database by ID  |
+
+### Documentations
+
+| URI     | Description                   |
+| ------- | ----------------------------- |
+| `/docs` | Documentation Swagger OpenAPI |
