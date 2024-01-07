@@ -66,6 +66,62 @@ class CarRoutes extends BaseRoutes {
     /**
      * @openapi
      *
+     * /api/cars/NoToken:
+     *  get:
+     *      summary: Get list of cars Without Token
+     *      description: Get all cars data
+     *      tags:
+     *          - Cars
+     *      responses:
+     *          '200':
+     *              description: Get All Data Success
+     *              content:
+     *                  application/json:
+     *                      example:
+     *                          - id: "7a0dfec0-db8d-4695-8434-45193e9feac4"
+     *                            plate: "DBH-3491"
+     *                            manufacture: "Ford"
+     *                            image: "https://i.ibb.co/58nQ0C0/car01-min.jpg"
+     *                            model: "F150"
+     *                            type: "Sedan"
+     *                            description: "Brake assist. Leather-wrapped shift knob. Glove box lamp. Air conditioning w/in-cabin microfilter."
+     *                            transmission: "Automatic"
+     *                            capacity: 2
+     *                            rentPerDay: "200000"
+     *                            availableAt: "2023-11-25T07:49:05.563Z"
+     *                            available: true
+     *                            year: 2022
+     *                            options:
+     *                              - "Cruise Control"
+     *                              - "Tinted Glass"
+     *                              - "Tinted Glass"
+     *                              - "Tinted Glass"
+     *                            specs:
+     *                              - "Brake assist"
+     *                              - "Brake assist"
+     *                              - "Brake assist"
+     *                            createdBy: "2625c868-55d3-4655-a3b1-f1e4416b39ce"
+     *                            updatedBy: "2625c868-55d3-4655-a3b1-f1e4416b39ce"
+     *                            deletedBy: null
+     *                            deletedAt: null
+     *                            created_at: "2023-11-23T15:08:05.900Z"
+     *                            updated_at: "2023-11-23T15:08:05.900Z"
+     *          '500':
+     *              description: Internal Server Error
+     *              content:
+     *                  application/json:
+     *                      schema:
+     *                          type: object
+     *                          properties:
+     *                              message:
+     *                                  type: string
+     *                                  example: "Internal Server Error"
+     */
+    this.router.get("/NoToken", CarController.index);
+
+    /**
+     * @openapi
+     *
      * /api/cars/:
      *  post:
      *      summary: Create a new Car
@@ -80,7 +136,7 @@ class CarRoutes extends BaseRoutes {
      *                      plate: "BHD-3923"
      *                      manufacture: "Lincoln"
      *                      model: "Navigator"
-     *                      image: "./images/car05.min.jpg"
+     *                      image: "https://i.ibb.co/J51QXrr/car05-min.jpg"
      *                      rentPerDay: 200000
      *                      capacity: 2
      *                      description: "Body color sill extension. Torsion beam rear suspension w/stabilizer bar. Front & rear passenger folding assist grips."

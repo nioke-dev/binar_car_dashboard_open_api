@@ -1,3 +1,8 @@
+import dotenv from 'dotenv';
+const path = require('path');
+
+dotenv.config({ path: path.join(__dirname, '..','.env') })
+
 import express, { Application, Request, Response } from "express";
 import bodyParser from "body-parser";
 import morgan from "morgan";
@@ -16,7 +21,6 @@ import AuthRoutes from "./routers/AuthRoutes";
 import CarRoutes from "./routers/CarRoutes";
 import ViewsController from "./controllers/ViewsController";
 
-const path = require("path");
 
 const knexInstance = knex({
   client: "postgresql",

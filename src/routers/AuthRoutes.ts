@@ -1,13 +1,44 @@
 import BaseRoutes from "./BaseRouter";
 import validate from "../middlewares/AuthValidator";
 import validateLogin from "../middlewares/AuthValidatorLogin";
-import { auth } from "../middlewares/AuthMiddleware";
+// import { auth } from "../middlewares/AuthMiddleware";
+import { OAuth2Client, UserRefreshClient } from "google-auth-library";
 
 // Controllers
 import AuthController from "../controllers/AuthController";
 
+const CLIENT_ID = process.env.CLIENT_ID
+const CLIENT_SECRET = process.env.CLIENT_SECRET
+
+const oAuth2Client = new OAuth2Client(
+    CLIENT_ID,
+    CLIENT_SECRET,
+    'postmessage',
+);
+
+console.log(CLIENT_ID, CLIENT_SECRET)
+
+
 class AuthRoutes extends BaseRoutes {
   public routes(): void {
+
+    this.router.post('/google', async(req, res) => {
+      const { tokens } = await oAuth2Client.getToken(req.body.code); // exchange code for tokens
+      console.log(tokens);
+
+      res.json(tokens);
+  })
+
+  this.router.post('/google/refresh-token', async(req,res) => {
+      const user = new UserRefreshClient(
+          CLIENT_ID,
+          CLIENT_SECRET,
+          req.body.refreshToken,
+        );
+      const { credentials } = await user.refreshAccessToken(); // optain new tokens
+      res.json(credentials);
+  })
+
     /**
      * @openapi
      *

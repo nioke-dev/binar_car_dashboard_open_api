@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "migrate": "npx knex migrate:latest --knexfile src/knexfile.ts",
+    "seed": "npx knex seed:run --knexfile src/knexfile.ts",
     "copy-assets": "npx copyfiles -u 1 ./src/views/* ./build/",
     "build:watch": "npm run copy-assets && tsc -w",
     "build": "tsc && npm run copy-assets",
@@ -43,6 +44,7 @@
     "ejs": "^3.1.9",
     "express": "^4.17.1",
     "express-validator": "^7.0.1",
+    "google-auth-library": "^9.4.1",
     "helmet": "^3.21.2",
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.0.1",
