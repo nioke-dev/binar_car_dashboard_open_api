@@ -6,17 +6,17 @@
   "scripts": {
     "start": "node build/index.js",
     "migrate": "npx knex migrate:latest --knexfile src/knexfile.ts",
-    "seed": "npx knex seed:run --knexfile src/knexfile.ts",
     "copy-assets": "npx copyfiles -u 1 ./src/views/* ./build/",
     "build:watch": "npm run copy-assets && tsc -w",
     "build": "tsc && npm run copy-assets",
-    "dev": "nodemon ./build/index.js"
+    "dev": "nodemon ./build/index.js",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@flydotio/dockerfile": "^0.5.0",
     "@types/bcrypt": "^5.0.2",
     "@types/compression": "^1.7.4",
     "@types/cors": "^2.8.5",
@@ -24,15 +24,18 @@
     "@types/helmet": "^0.0.45",
     "@types/jsonwebtoken": "^9.0.5",
     "@types/morgan": "^1.9.1",
+    "@types/supertest": "^6.0.2",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.6",
     "@types/uuid": "^9.0.7",
     "@types/validator": "^13.11.7",
+    "@vitest/coverage-v8": "^1.1.3",
     "copyfiles": "^2.4.1",
-    "morgan": "^1.9.1",
     "nodemon": "^3.0.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "supertest": "^6.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.2.2",
+    "vitest": "^1.1.3"
   },
   "dependencies": {
     "@types/pg": "^8.10.9",
@@ -50,6 +53,7 @@
     "helmet": "^3.21.2",
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.0.1",
+    "morgan": "^1.9.1",
     "objection": "^3.1.2",
     "pg": "^8.11.3",
     "swagger-jsdoc": "^6.2.8",
