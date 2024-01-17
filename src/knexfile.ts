@@ -6,16 +6,13 @@ import dotenv from "dotenv";
 // Update with your config settings.
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
+console.log(process.env["DATABASE_URL"])
 
 const config: { [key: string]: Knex.Config } = {
 
   development: {
     client: "postgresql",
-    connection: {
-      database: process.env.DB_NAME,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD
-    },
+    connection: process.env['DATABASE_URL'],
     pool: {
       min: 2,
       max: 10
@@ -31,11 +28,7 @@ const config: { [key: string]: Knex.Config } = {
 
   production: {
     client: "pg",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
-    },
+    connection: process.env['DATABASE_URL'],
     pool: {
       min: 2,
       max: 10
