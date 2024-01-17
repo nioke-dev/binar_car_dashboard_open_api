@@ -1,7 +1,7 @@
-import dotenv from 'dotenv';
-const path = require('path');
+import dotenv from "dotenv";
+const path = require("path");
 
-dotenv.config({ path: path.join(__dirname, '..','.env') })
+dotenv.config({ path: path.join(__dirname, "..", ".env") });
 
 import express, { Application, Request, Response } from "express";
 import bodyParser from "body-parser";
@@ -20,7 +20,6 @@ import UserRoutes from "./routers/UserRoutes";
 import AuthRoutes from "./routers/AuthRoutes";
 import CarRoutes from "./routers/CarRoutes";
 import ViewsController from "./controllers/ViewsController";
-
 
 const knexInstance = knex({
   client: "postgresql",
@@ -81,6 +80,6 @@ class App {
 const PORT: number = 3000;
 const app = new App().app;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server listening on ${PORT}`);
 });
