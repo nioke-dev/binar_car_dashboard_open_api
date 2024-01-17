@@ -1,34 +1,24 @@
 import { Request, Response } from "express";
 import IController from "./ControllerInterface";
-import UserService from "../services/UserService";
+
 
 class UserController implements IController {
-  async index(req: Request, res: Response): Promise<Response> {
-    // get all users
-    try {
-      const users = await UserService.getAllUsers();
-      return res.json({
-        data: users,
-      });
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({
-        error: "Internal Server Error",
-      });
+    index(req: Request, res: Response): Response {
+        return res.send("Ini adalah endpoint index user");
     }
-  }
-  create(req: Request, res: Response): Response {
-    throw new Error("Feature Not Found.");
-  }
-  show(req: Request, res: Response): Response {
-    throw new Error("Feature Not Found.");
-  }
-  update(req: Request, res: Response): Response {
-    throw new Error("Feature Not Found.");
-  }
-  delete(req: Request, res: Response): Response {
-    throw new Error("Feature Not Found.");
-  }
+    create(req: Request, res: Response): Response {
+        return res.send(req.body);
+    }
+    show(req: Request, res: Response): Response {
+        throw new Error("Method not implemented.");
+    }
+    update(req: Request, res: Response): Response {
+        throw new Error("Method not implemented.");
+    }
+    delete(req: Request, res: Response): Response {
+        throw new Error("Method not implemented.");
+    }
+    
 }
 
 export default new UserController();
