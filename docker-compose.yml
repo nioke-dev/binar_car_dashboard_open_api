@@ -7,13 +7,13 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - '5430:5432'
     healthcheck:
       test: ['CMD', 'pg_isready', '-U', 'postgres']
     environment:
-      - POSTGRES_DB=my_db
-      - POSTGRES_USER=username
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
 
 volumes:
   pgdata:

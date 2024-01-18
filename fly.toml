@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for binar-car-open-api-new on 2024-01-17T20:57:02+07:00
+# fly.toml app configuration file generated for binar-car-open-api on 2024-01-17T20:57:02+07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "binar-car-open-api-new"
+app = "binar-car-open-api"
 primary_region = "sin"
 
 [build]

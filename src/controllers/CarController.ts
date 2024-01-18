@@ -80,7 +80,7 @@ class CarController implements IController {
     const { id } = req.params;
   
     try {
-      const car = await CarService.deleteCar(id, req.app.locals.credential.id);
+      const car = await CarService.deleteCarbyId(id, req.app.locals.credential.id);
   
       if (!car) {
         return res.status(404).json({ message: 'Data not found' });
