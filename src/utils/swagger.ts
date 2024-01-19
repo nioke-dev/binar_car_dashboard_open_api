@@ -7,7 +7,7 @@ const definition = {
     version: "1.0.0",
     contact: {
       name: "Muhammad Nurul Mustofa",
-      email: "nioke8090@gmail.com",
+      email: "nioke8090@gmail.com@gmail.com",
       url: "https://github.com/nioke-dev",
     },
   },
@@ -17,7 +17,7 @@ const definition = {
       description: "Car Management RESTful API Server",
     },
     {
-      url: "https://binar-car-open-api.fly.dev",
+      url: "https://binar-car-open-api.fly.dev/",
       description: "Car Management RESTful API Server Prod",
     },
   ],

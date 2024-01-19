@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node build/index.js",
     "migrate": "npx knex migrate:latest --knexfile src/knexfile.ts",
+    "seed": "npx knex seed:run --knexfile src/knexfile.ts",
     "copy-assets": "npx copyfiles -u 1 ./src/views/* ./build/",
     "build:watch": "npm run copy-assets && tsc -w",
     "build": "tsc && npm run copy-assets",

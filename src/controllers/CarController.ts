@@ -29,7 +29,10 @@ class CarController implements IController {
     };
 
     try {
-      const newCar = await CarService.createCar(carData, req.app.locals.credential.id);
+      const newCar = await CarService.createCar(
+        carData,
+        req.app.locals.credential.id
+      );
       return res.status(200).send(newCar);
     } catch (error) {
       console.error(error);
@@ -48,14 +51,18 @@ class CarController implements IController {
     };
 
     try {
-      const updatedCar = await CarService.updateCar(id, updatedCarData, req.app.locals.credential.id);
+      const updatedCar = await CarService.updateCar(
+        id,
+        updatedCarData,
+        req.app.locals.credential.id
+      );
       if (!updatedCar) {
-        return res.status(404).json({ error: 'Car not found' });
+        return res.status(404).json({ error: "Car not found" });
       }
       return res.status(200).send(updatedCar);
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ error: 'Internal Server Error' });
+      return res.status(500).json({ error: "Internal Server Error" });
     }
   }
 
@@ -64,32 +71,32 @@ class CarController implements IController {
 
     try {
       const car = await CarService.getCarById(id);
-  
+
       if (!car) {
-        return res.status(404).json({ message: 'Data not found' });
+        return res.status(404).json({ message: "Data not found" });
       }
-  
+
       return res.status(200).json(car);
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ error: 'Internal Server Error' });
+      return res.status(500).json({ error: "Internal Server Error" });
     }
   }
 
   async delete(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
-  
+
     try {
-      const car = await CarService.deleteCarbyId(id, req.app.locals.credential.id);
-  
+      const car = await CarService.deleteCar(id, req.app.locals.credential.id);
+
       if (!car) {
-        return res.status(404).json({ message: 'Data not found' });
+        return res.status(404).json({ message: "Data not found" });
       }
-  
-      return res.status(204).json({ message: 'Berhasil hapus data' });
+
+      return res.status(204).json({ message: "Berhasil hapus data" });
     } catch (error) {
       console.error(error);
-      return res.status(500).json({ error: 'Internal Server Error' });
+      return res.status(500).json({ error: "Internal Server Error" });
     }
   }
 }

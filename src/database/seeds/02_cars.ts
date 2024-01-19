@@ -1,7 +1,7 @@
 import { Knex } from "knex";
 
 const tableName = "cars";
-export async function seed(knex: Knex): Promise<void> {
+export async function seed(knex: Knex): Promise<void> {  
   // Deletes ALL existing entries
   await knex(tableName).del();
 

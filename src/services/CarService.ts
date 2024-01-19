@@ -25,8 +25,8 @@ class CarService {
         return car;
     }
 
-    async deleteCarbyId(id: string, deletedBy: string) {
-        const car = await CarRepository.deleteCarbyId(id, deletedBy);
+    async deleteCar(id: string, deletedBy: string) {
+        const car = await CarRepository.deleteCar(id, deletedBy);
         return car;
     }
 }
