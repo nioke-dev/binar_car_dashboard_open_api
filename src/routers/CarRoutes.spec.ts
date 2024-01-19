@@ -21,7 +21,7 @@ describe("test Cars API:/api/cars", () => {
 
     expect(registerResponse.status).toBe(201);
     expect(registerResponse.body).toHaveProperty(
-    //   "message",
+      "message",
       "Registrasi Sukses!"
     );
 
@@ -167,7 +167,7 @@ describe("test Cars API:/api/cars", () => {
     };
 
     const response = await supertest(app)
-      .put(`/api/v1/cars/${addedCarId}`) // <-- Perubahan di sini
+      .put(`/api/cars/${addedCarId}`) // <-- Perubahan di sini
       .set("Authorization", `Bearer ${globalToken}`)
       .send(updatedCarData);
 
@@ -202,14 +202,14 @@ describe("test Cars API:/api/cars", () => {
     }
 
     const response = await supertest(app)
-      .delete(`/api/v1/cars/${addedCarId}`)
+      .delete(`/api/cars/${addedCarId}`)
       .set("Authorization", `Bearer ${globalToken}`);
 
     expect(response.status).toBe(204);
 
     // Pastikan mobil telah dihapus dengan mencoba mengambil data mobil yang telah dihapus
     const deletedCarResponse = await supertest(app)
-      .get(`/api/v1/cars/${addedCarId}`)
+      .get(`/api/cars/${addedCarId}`)
       .set("Authorization", `Bearer ${globalToken}`);
 
     expect(deletedCarResponse.status).toBe(404);
