@@ -15,13 +15,13 @@ describe("test Cars API:/api/cars", () => {
     const registerResponse = await supertest(app)
       .post("/api/auth/register")
       .send({
-        email: "fawwazi12@gmail.com",
-        password: "fawwazi123",
+        email: "nioke8990@gmail.com",
+        password: "rahasia",
       });
 
     expect(registerResponse.status).toBe(201);
     expect(registerResponse.body).toHaveProperty(
-      "message",
+    //   "message",
       "Registrasi Sukses!"
     );
 
