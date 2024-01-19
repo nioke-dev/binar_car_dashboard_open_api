@@ -29,8 +29,8 @@ jobs:
           touch .env 
           echo DATABASE_URL=postgres://postgres:docker@localhost:5432/postgres?schema=public >> .env
           cat .env
-      # - name: Migrate Database
-      #   run: npx knex migrate:latest --knexfile ./src/knexfile.ts && npx knex seed:run --knexfile ./src/knexfile.ts
+      - name: Migrate Database
+        run: npx knex migrate:latest --knexfile ./src/knexfile.ts && npx knex seed:run --knexfile ./src/knexfile.ts
       - name: Test Coverage
         run: npm run coverage
       - uses: superfly/flyctl-actions/setup-flyctl@master
