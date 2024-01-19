@@ -26,8 +26,8 @@ describe("test Cars API:/api/cars", () => {
     );
 
     const loginResponse = await supertest(app).post("/api/auth/login").send({
-      email: "fawwazi12@gmail.com",
-      password: "fawwazi123",
+      email: "nioke8090@gmail.com",
+      password: "rahasia",
     });
 
     expect(loginResponse.status).toBe(200);
